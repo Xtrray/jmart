@@ -40,7 +40,7 @@ public class Driver
     }
     
     public int getOriginalPrice(int discountedPrice, float discountPercentage){
-        return discountedPrice + (discountedPrice * (int)discountPercentage/100);
+        return (int)(discountedPrice/((100.0f-discountPercentage)/100));
     }
     
     public float getCommissionMultiplier(){
