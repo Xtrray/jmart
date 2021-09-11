@@ -10,7 +10,7 @@ package ferdyJmartDR;
 public class Driver
 {
     public void main (String args[]){
-        getPromo();
+        
     }
     
     public int getPromo(){
@@ -48,10 +48,10 @@ public class Driver
     }
     
     public int getAdjustedPrice(int price){
-        return price + (price * 5/100);
+        return price + ((int)(price * getCommissionMultiplier()));
     }
     
     public int getAdminFee(int price){
-        return price*5/100;
+        return (int)(price*getCommissionMultiplier());
     }
 }
