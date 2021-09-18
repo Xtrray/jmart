@@ -32,9 +32,9 @@ public class PriceTag
         // put your code here
     }
     
-    final double COMMISSION_MULTIPLIER = 0.05f;
-    final double BOTTOM_PRICE = 20000.0f;
-    final double BOTTOM_FEE = 1000.0f;
+    public final double COMMISSION_MULTIPLIER = 0.05f;
+    public final double BOTTOM_PRICE = 20000.0f;
+    public final double BOTTOM_FEE = 1000.0f;
     
     double price;
     double discount;
