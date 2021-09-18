@@ -72,8 +72,7 @@ public class Jmart
         return (int)(price*getCommissionMultiplier());
     }
     */
-    public static Product create(String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category){
-        Product product = new Product(name, weight, conditionUsed, priceTag, category);
+    public static Product create(){
         return null;
     }
 }
