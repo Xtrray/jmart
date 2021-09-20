@@ -10,4 +10,10 @@ comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\
 comment3.params=
 comment3.target=Product\ create()
 comment3.text=\r\n\ \ \ \ public\ static\ int\ getPromo(){\r\n\ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ static\ String\ getCustomer(){\r\n\ \ \ \ \ \ \ \ return\ "oop";\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ static\ float\ getDiscountPercentage(int\ before,\ int\ after){\r\n\ \ \ \ \ \ \ \ if(before\ <\ after){\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 0.0f;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ else{\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ ((before-after)/100);\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ static\ int\ getDiscountedPrice(int\ price,\ float\ discountPercentage){\r\n\ \ \ \ \ \ \ \ if(discountPercentage\ >\ 100.0f){\r\n\ \ \ \ \ \ \ \ \ \ \ \ discountPercentage\ \=\ 100.0f;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ (int)\ (price\ *\ (100.0f\ -\ discountPercentage)\ /\ 100.0f);\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ static\ int\ getOriginalPrice(int\ discountedPrice,\ float\ discountPercentage){\r\n\ \ \ \ \ \ \ \ return\ (int)(discountedPrice/((100.0f-discountPercentage)/100));\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ float\ getCommissionMultiplier(){\r\n\ \ \ \ \ \ \ \ return\ 0.05f;\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ int\ getAdjustedPrice(int\ price){\r\n\ \ \ \ \ \ \ \ return\ price\ +\ ((int)(price\ *\ getCommissionMultiplier()));\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ int\ getAdminFee(int\ price){\r\n\ \ \ \ \ \ \ \ return\ (int)(price*getCommissionMultiplier());\r\n\ \ \ \ }\r\n
-numComments=4
+comment4.params=
+comment4.target=Product\ createProduct()
+comment5.params=
+comment5.target=Coupon\ createCoupun()
+comment6.params=
+comment6.target=ShipmentDuration\ createShipmentDuration()
+numComments=7

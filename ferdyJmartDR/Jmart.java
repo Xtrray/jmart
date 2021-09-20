@@ -75,4 +75,16 @@ public class Jmart
     public static Product create(){
         return null;
     }
+    
+    public static Product createProduct(){
+        return null;
+    }
+    
+    public static Coupon createCoupun(){
+        return null;
+    }
+    
+    public static ShipmentDuration createShipmentDuration(){
+        return null;
+    }
 }
