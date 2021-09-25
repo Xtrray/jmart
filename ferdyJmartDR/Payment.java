@@ -7,7 +7,7 @@ package ferdyJmartDR;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Payment extends Transaction implements FileParser
+public class Payment extends Recognizable implements FileParser
 {
     public int productId;
     public ShipmentDuration shipmentDuration;

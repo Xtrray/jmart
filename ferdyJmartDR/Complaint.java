@@ -7,7 +7,7 @@ package ferdyJmartDR;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Complaint extends Transaction implements FileParser
+public class Complaint extends Recognizable implements FileParser
 {
     // instance variables - replace the example below with your own
     public int paymentId;
