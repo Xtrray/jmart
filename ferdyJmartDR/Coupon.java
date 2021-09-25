@@ -7,7 +7,7 @@ package ferdyJmartDR;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupon
+public class Coupon extends Recognizable implements FileParser
 {
     public String name;
     public int code;
@@ -24,8 +24,9 @@ public class Coupon
     /**
      * Constructor for objects of class Coupon
      */
-    public Coupon(String name, int code, Type type, double cut, double minimum)
+    public Coupon(int id, String name, int code, Type type, double cut, double minimum)
     {
+        super(id);
         this.name = name;
         this.code = code;
         this.type = type;
@@ -53,5 +54,19 @@ public class Coupon
             return priceTag.getAdjustedPrice() * ((100-this.cut)/100);
         }
         return (priceTag.getAdjustedPrice() - this.cut);
+    }
+    
+    @Override
+    public boolean read(String content){
+        return false;
+    }
+    
+    @Override
+    public Object write(){
+        return null;
+    }
+    
+    public static Object newInstance(String content){
+        return null;
     }
 }
