@@ -4,12 +4,13 @@ package ferdyJmartDR;
 /**
  * Abstract class Transaction - write a description of the class here
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @Mochamad Ferdy Fauzan
+ * @27-09-2021
  */
-public abstract class Transaction extends Recognizable
+public interface Transactor
 {
     // instance variables - replace the example below with your own
+    /*
     public String time = "Time";
     public int buyerId;
     public int storeId;
@@ -20,7 +21,7 @@ public abstract class Transaction extends Recognizable
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
-     */
+     
     
     public enum Rating{
         NONE,
@@ -40,12 +41,12 @@ public abstract class Transaction extends Recognizable
         this.buyerId = buyer.id;
         this.storeId = store.id;
     }
-    
-    public boolean validate(){
+    */
+    public default boolean validate(){
         return false;
     }
     
-    public Transaction perform(){
+    public default Invoice perform(){
         return null;
     }
 }

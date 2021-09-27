@@ -4,19 +4,17 @@ package ferdyJmartDR;
 /**
  * Write a description of class Account here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Mochamad Ferdy Fauzan
+ * @27-09-2021
  */
 public class Account extends Recognizable implements FileParser
 {
     // instance variables - replace the example below with your own
+    
     public String name;
     public String email;
     public String password;
 
-    /**
-     * Constructor for objects of class Account
-     */
     public Account(int id, String name, String email, String password)
     {
         super(id);
@@ -25,12 +23,6 @@ public class Account extends Recognizable implements FileParser
         this.password = password;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     @Override
     public boolean read(String content){
         return false;
@@ -43,5 +35,12 @@ public class Account extends Recognizable implements FileParser
     
     public static Object newInstance(String content){
         return null;
+    }
+   
+    public String toString(){
+        return
+        "Name : "+this.name+
+        "\nemail : "+this.email+
+        "\npassword : "+this.password;
     }
 }

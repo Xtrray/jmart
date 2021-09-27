@@ -5,7 +5,7 @@ package ferdyJmartDR;
  * Write a description of class Store here.
  *
  * @Mochamad Ferdy Fauzan
- * @25-09-2021
+ * @27-09-2021
  */
 public class Store extends Recognizable implements FileParser
 {
@@ -14,9 +14,6 @@ public class Store extends Recognizable implements FileParser
     public String address;
     public String phoneNumber;
 
-    /**
-     * Constructor for objects of class Store
-     */
     public Store(int accountId, String name, String address, String phoneNumber)
     {
         super(accountId);
@@ -35,5 +32,12 @@ public class Store extends Recognizable implements FileParser
     @Override
     public boolean read(String content){
         return false;
+    }
+   
+    public String toString(){
+        return
+        "Name : "+this.name+
+        "\nemail : "+this.address+
+        "\nphoneNumber : "+this.phoneNumber;
     }
 }
