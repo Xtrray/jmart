@@ -5,16 +5,19 @@ package ferdyJmartDR;
  * Write a description of class Complaint here.
  *
  * @Mochamad Ferdy Fauzan
- * @27-09-2021
+ * @02-10-2021
  */
+import java.util.Date;
+
 public class Complaint extends Recognizable implements FileParser
 {
-    public String date;
+    public Date date;
     public String desc;
 
     public Complaint(int id, String desc) {
         super(id);
         this.desc = desc;
+        this.date = new Date();
     }
 
     @Override

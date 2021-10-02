@@ -5,12 +5,13 @@ package ferdyJmartDR;
  * Write a description of class Invoice here.
  *
  * @Mochamad Ferdy Fauzan
- * @27-09-2021
+ * @02-10-2021
  */
+import java.util.Date;
 public class Invoice extends Recognizable implements FileParser
 {
     // instance variables - replace the example below with your own
-    public String date;
+    public Date date;
     public int buyerId;
     public int productId;
     public int complaintId;
@@ -41,7 +42,7 @@ public class Invoice extends Recognizable implements FileParser
         super(id);
         this.buyerId = buyerId;
         this.productId = productId;
-        this.date = "";
+        this.date = new Date();
         this.rating = Rating.NONE;
         this.status = Status.WAITING_CONFIRMATION;
     }

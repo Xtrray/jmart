@@ -4,8 +4,8 @@ package ferdyJmartDR;
 /**
  * Write a description of class Jmart here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Mochamad Ferdy Fauzan
+ * @02-10-2021
  */
 public class Jmart
 {
@@ -29,7 +29,8 @@ public class Jmart
      */
     public static void main(String[] args)
     {
-        // put your code here
+        Store store = new Store(24, "Toko Game Gasix", "Rawa Belong", "0123456789");
+        store.validate();
     }
     /*
     public static int getPromo(){
@@ -80,7 +81,7 @@ public class Jmart
         return null;
     }
     
-    public static Coupon createCoupun(){
+    public static Coupon createCoupon(){
         return null;
     }
     
