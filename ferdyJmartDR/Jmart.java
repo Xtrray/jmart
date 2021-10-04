@@ -31,6 +31,9 @@ public class Jmart
     {
         Store store = new Store(24, "Toko Game Gasix", "Rawa Belong", "0123456789");
         store.validate();
+        Complaint komplen = new Complaint(2, "Dibawa kabur oleh kurir");
+        Account account = new Account(42, "Kim Fei Hu", "kim.feihu09@gmail.com", "kimC1an5uprem4cy");
+        account.validate();
     }
     /*
     public static int getPromo(){

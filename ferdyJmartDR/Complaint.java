@@ -5,14 +5,15 @@ package ferdyJmartDR;
  * Write a description of class Complaint here.
  *
  * @Mochamad Ferdy Fauzan
- * @02-10-2021
+ * @04-10-2021
  */
 import java.util.Date;
-
+import java.text.*;
 public class Complaint extends Recognizable implements FileParser
 {
     public Date date;
     public String desc;
+    SimpleDateFormat SDFormat = new SimpleDateFormat("MM/dd/yyyy");
 
     public Complaint(int id, String desc) {
         super(id);
@@ -23,6 +24,12 @@ public class Complaint extends Recognizable implements FileParser
     @Override
     public boolean read(String content){
         return false;
+    }
+    
+    public String toString(){
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = formatDate.format(this.date);
+        return "Complaint{date=" + formattedDate + ", desc='" +this.desc+ "'}";
     }
 
     /*

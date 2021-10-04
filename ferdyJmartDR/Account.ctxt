@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Account
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Account\ here.\r\n\r\n\ @Mochamad\ Ferdy\ Fauzan\r\n\ @27-09-2021\r\n
 comment1.params=id\ name\ email\ password
 comment1.target=Account(int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=content
@@ -11,4 +10,6 @@ comment4.params=content
 comment4.target=java.lang.Object\ newInstance(java.lang.String)
 comment5.params=
 comment5.target=java.lang.String\ toString()
-numComments=6
+comment6.params=
+comment6.target=boolean\ validate()
+numComments=7
