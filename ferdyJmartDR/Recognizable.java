@@ -4,28 +4,18 @@ package ferdyJmartDR;
 /**
  * Write a description of class Recognizable here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Mochamad Ferdy Fauzan
+ * @09-10-2021
  */
-public class Recognizable
+public class Recognizable implements Comparable<Recognizable>
 {
-    // instance variables - replace the example below with your own
     public final int id;
 
-    /**
-     * Constructor for objects of class Recognizable
-     */
     protected Recognizable(int id)
     {
         this.id = id;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public boolean equals (Object obj)
     {
         if(obj instanceof Recognizable)
@@ -50,5 +40,18 @@ public class Recognizable
         else{
             return false;
         }
+    }
+    
+    public static <T extends Recognizable> int setClosingId(Class<T> clazz, int id) {
+        return 0;
+    }
+
+    public static <T extends Recognizable> int getClosingId(Class<T> clazz) {
+        return 0;
+    }
+    
+    @Override
+    public int compareTo(Recognizable other) {
+        return Integer.compare(this.id, other.id);
     }
 }
