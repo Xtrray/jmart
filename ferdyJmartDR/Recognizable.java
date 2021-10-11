@@ -5,15 +5,13 @@ package ferdyJmartDR;
  * Write a description of class Recognizable here.
  *
  * @Mochamad Ferdy Fauzan
- * @09-10-2021
+ * @11-10-2021
  */
 public class Recognizable implements Comparable<Recognizable>
 {
-    public final int id;
+    public final int id = 0;
 
-    protected Recognizable(int id)
-    {
-        this.id = id;
+    protected Recognizable(){
     }
 
     public boolean equals (Object obj)

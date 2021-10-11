@@ -5,13 +5,12 @@ package ferdyJmartDR;
  * Write a description of class Invoice here.
  *
  * @Mochamad Ferdy Fauzan
- * @04-10-2021
+ * @11-10-2021
  */
 import java.util.Date;
 import java.util.ArrayList;
-public class Invoice extends Recognizable implements FileParser
+public class Invoice extends Recognizable
 {
-    // instance variables - replace the example below with your own
     public Date date;
     public int buyerId;
     public int productId;
@@ -39,25 +38,13 @@ public class Invoice extends Recognizable implements FileParser
     /**
      * Constructor for objects of class Invoice
      */
-      protected Invoice(int id, int buyerId, int productId)
+      protected Invoice(int buyerId, int productId)
     {
-        super(id);
         this.buyerId = buyerId;
         this.productId = productId;
         this.date = new Date();
         this.rating = Rating.NONE;
         this.status = Status.WAITING_CONFIRMATION;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    @Override
-    public boolean read(String content){
-        return false;
     }
     
     public double getTotalPay(){

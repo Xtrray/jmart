@@ -18,20 +18,11 @@ public class Shipment
     public Duration duration;
     public String receipt;
 
-    /**
-     * Constructor for objects of class Shipment
-     */
     public Shipment(String address, int shipment)
     {
        
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public static class Duration
     {
     public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("Thu October 07 2021");

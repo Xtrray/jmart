@@ -4,10 +4,10 @@ package ferdyJmartDR;
 /**
  * Write a description of class Coupon here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Mochamad Ferdy Fauzan
+ * @11-10-2021
  */
-public class Coupon extends Recognizable implements FileParser
+public class Coupon extends Recognizable
 {
     public String name;
     public int code;
@@ -24,9 +24,8 @@ public class Coupon extends Recognizable implements FileParser
     /**
      * Constructor for objects of class Coupon
      */
-    public Coupon(int id, String name, int code, Type type, double cut, double minimum)
+    public Coupon(String name, int code, Type type, double cut, double minimum)
     {
-        super(id);
         this.name = name;
         this.code = code;
         this.type = type;
@@ -39,7 +38,7 @@ public class Coupon extends Recognizable implements FileParser
         return this.used;
     }
     
-    public boolean canApply(PriceTag priceTag){
+    public boolean canApply(Treasury priceTag){
         if(priceTag.getAdjustedPrice() >= minimum & this.used == false){
             return true;
         }
@@ -48,22 +47,12 @@ public class Coupon extends Recognizable implements FileParser
         }
     }
     
-    public double apply(PriceTag priceTag){
+    public double apply(Treasury priceTag){
         this.used = true;
         if(this.type == Type.DISCOUNT){
             return priceTag.getAdjustedPrice() * ((100-this.cut)/100);
         }
         return (priceTag.getAdjustedPrice() - this.cut);
-    }
-    
-    @Override
-    public boolean read(String content){
-        return false;
-    }
-    
-    @Override
-    public Object write(){
-        return null;
     }
     
     public static Object newInstance(String content){
