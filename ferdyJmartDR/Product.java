@@ -7,38 +7,40 @@ package ferdyJmartDR;
  * @Mochamad Ferdy Fauzan
  * @11-10-2021
  */
-public class Product extends Recognizable
+public class Product extends Serializable
 {
-    public int storeId; 
+    public int accountId; 
     public String name;
     public int weight;
     public boolean conditionUsed;
-    public Treasury priceTag;
+    public double discount;
+    public double price;
+    public byte shipmentPlans;
     public ProductCategory category;
-    public ProductRating rating;
-    public Shipment.MultiDuration multiDuration;
     /**
      * Constructor for objects of class Product
      */
-     public Product(int storeId, String name, int weight, boolean conditionUsed, Treasury priceTag, ProductCategory category, Shipment.MultiDuration multiDuration)
+     public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount, ProductCategory category, byte shipmentPlans)
     {
-        this.storeId = storeId;
+        this.accountId = accountId;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
-        this.priceTag = priceTag;
+        this.price = price;
         this.category = category;
-        this.rating = new ProductRating();
-        this.multiDuration = multiDuration;
+        this.discount = discount;
+        this.shipmentPlans = shipmentPlans;
     }
     
     public String toString() {
         return 
-        "Name: " + this.name +
+        "accountId: " + this.accountId +
+        "\nName: " + this.name +
+        "\nweight: " + this.weight +
         "\nconditionUsed: " + this.conditionUsed +
-        "\npriceTag: " + this.priceTag +
+        "\nprice: " + this.price +
+        "\ndiscount: " + this.discount +
         "\ncategory: " + this.category +
-        "\nrating: " + this.rating +
-        "\nstoreId: " + this.storeId;
+        "\nshipmentPlans: " + this.shipmentPlans;
     }
 }

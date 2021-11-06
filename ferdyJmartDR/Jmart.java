@@ -5,13 +5,17 @@ package ferdyJmartDR;
  * Write a description of class Jmart here.
  *
  * @Mochamad Ferdy Fauzan
- * @05-11-2021
+ * @06-11-2021
  */
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import com.google.gson.*;
+import com.google.gson.stream.JsonReader;
 
 public class Jmart
 {
@@ -28,19 +32,45 @@ public class Jmart
     
     public static void main(String[] args)
     {
-    	String filepath = "C://Java//jmart/city.json";
-    	Gson gson = new Gson();
     	try {
-    		BufferedReader br = new BufferedReader(new FileReader(filepath));
-    		Country input = gson.fromJson(br, Country.class);
-    		System.out.println("name: " + input.name);
-    		System.out.println("population: " + input.population);
-    		System.out.println("States:");
-    		input.listOfStates.forEach(state -> System.out.println(state));
-    	}
-    	catch(IOException e){
-    		e.printStackTrace();
-    	}
+    		List<Product> list = read("C:/Java/jmart/randomProductList.json");
+    		List<Product> filtered = filterByPrice(list, 20000.0, 25000.0);
+            filtered.forEach(product -> System.out.println(product.price));
+        }
+    	catch (Throwable t){
+            t.printStackTrace();
+        }
+    	
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	
+    	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
+    	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
+    	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
+    }
+    
+    public static List<Product> read(String filepath) throws FileNotFoundException {
+        List<Product> products = new ArrayList<>();
+        try{
+            Gson gson = new Gson();
+            JsonReader reader = new JsonReader(new FileReader(filepath));
+            reader.beginArray();
+            while(reader.hasNext()){
+                products.add(gson.fromJson(reader, Product.class));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+    
+    public static List<Product> filterByPrice(List<Product> list, double minPrice, double maxPrice){
+    	return list;
+    }
+    
+    public static List<Product> filterByCategory(List<Product> list, ProductCategory category){
+    	return list;
     }
     /*
     public static int getPromo(){

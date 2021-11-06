@@ -1,66 +1,67 @@
 package ferdyJmartDR;
 
-
 /**
- * Write a description of class Shipment here.
+ * Write a description of class Jmart here.
  *
  * @Mochamad Ferdy Fauzan
- * @02-10-2021
+ * @11-10-2021
  */
+
 import java.util.Calendar;
 import java.util.Date;
 import java.text.*;
 public class Shipment
 {
-    // instance variables - replace the example below with your own
     public String address;
-    public int shipmentCost;
-    public Duration duration;
+    public int cost;
+    public byte plan;
     public String receipt;
-
-    public Shipment(String address, int shipment)
-    {
-       
-    }
-
-    public static class Duration
-    {
-    public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("Thu October 07 2021");
-    public static final Duration INSTANT = new Duration((byte)(1 << 0));
-    public static final Duration SAME_DAY = new Duration((byte)(1 << 1));
-    public static final Duration NEXT_DAY = new Duration((byte)(1 << 2));
-    public static final Duration REGULER = new Duration((byte)(1 << 3));
-    public static final Duration KARGO = new Duration((byte)(1 << 4));
-    private byte bit;
+    public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("EEE MM dd yyyy");
+    public static final Plan INSTANT = new Plan((byte)(1 << 0));
+    public static final Plan SAME_DAY = new Plan((byte)(1 << 1));
+    public static final Plan NEXT_DAY = new Plan((byte)(1 << 2));
+    public static final Plan REGULER = new Plan((byte)(1 << 3));
+    public static final Plan KARGO = new Plan((byte)(1 << 4));
     
-    private Duration(byte bit){
-            this.bit = bit;
-        }
+    public Shipment(String address, int cost, byte plan, String receipt)
+    {
+       this.address = address;
+       this.cost = cost;
+       this.plan = plan;
+       this.receipt = receipt;
+    }
+    
     public String getEstimatedArrival(Date reference){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(reference);
-        if(bit == Duration.NEXT_DAY.bit){
+        if(Plan.bit == NEXT_DAY.bit){
             calendar.add(Calendar.DATE, 1);
         }
-        if(bit == Duration.REGULER.bit){
+        if(Plan.bit == REGULER.bit){
             calendar.add(Calendar.DATE, 2);
         }
-        if(bit == Duration.KARGO.bit){
+        if(Plan.bit == KARGO.bit){
             calendar.add(Calendar.DATE, 5);
         }
         return ESTIMATION_FORMAT.format(calendar.getTime());
     }
+    
+    public boolean isDuration(Plan reference){
+        return (Plan.bit & reference.bit) != 0;
     }
-    public class MultiDuration{
-        public byte bit;
-        public MultiDuration(Duration... args)
-        {
-            byte flags = 0;
-            for (Duration arg : args) { flags |= arg.bit; }
+    
+    public static boolean isDuration(byte object, Plan reference) {
+    	return (object & Plan.bit) != 0;
+    }
+
+    public static class Plan
+    {
+    	public static final byte bit = 0;
+    	
+    	private Plan(byte bit, Shipment... args) {
+    		byte flags = 0;
+            for (Shipment arg : args) { flags |= arg.plan; }
             bit = flags;
-        }
-        public boolean isDuration(Duration reference){
-            return (bit & reference.bit) != 0;
-        }
+    	}
     }
 }

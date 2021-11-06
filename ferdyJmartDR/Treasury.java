@@ -2,10 +2,10 @@ package ferdyJmartDR;
 
 
 /**
- * Write a description of class PriceTag here.
+ * Write a description of class Jmart here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Mochamad Ferdy Fauzan
+ * @11-10-2021
  */
 public class Treasury
 {    

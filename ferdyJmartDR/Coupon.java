@@ -7,7 +7,7 @@ package ferdyJmartDR;
  * @Mochamad Ferdy Fauzan
  * @11-10-2021
  */
-public class Coupon extends Recognizable
+public class Coupon extends Serializable
 {
     public String name;
     public int code;

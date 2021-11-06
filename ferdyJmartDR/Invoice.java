@@ -9,7 +9,7 @@ package ferdyJmartDR;
  */
 import java.util.Date;
 import java.util.ArrayList;
-public class Invoice extends Recognizable
+public class Invoice extends Serializable
 {
     public Date date;
     public int buyerId;
