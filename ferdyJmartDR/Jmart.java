@@ -5,7 +5,7 @@ package ferdyJmartDR;
  * Write a description of class Jmart here.
  *
  * @Mochamad Ferdy Fauzan
- * @08-11-2021
+ * @13-11-2021
  */
 
 import java.io.FileNotFoundException;
@@ -63,9 +63,23 @@ public class Jmart
             t.printStackTrace();
         }
     	
-    	System.out.println("account id:" + new Account(null, null, null, -1).id);
-    	System.out.println("account id:" + new Account(null, null, null, -1).id);
-    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	try {
+    		String filepath = "C:/Java/jmart/account.json";
+    		
+    		JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
+    		tableAccount.add(new Account("name", "email", "password"));
+    		tableAccount.writeJson();
+    		
+    		tableAccount = new JsonTable<>(Account.class, filepath);
+    		tableAccount.forEach(account -> System.out.println(account.toString()));
+    	}
+    	catch(Throwable t) {
+    		t.printStackTrace();
+    	}
+    	
+    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
     	
     	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
     	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
