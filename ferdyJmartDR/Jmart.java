@@ -5,7 +5,7 @@ package ferdyJmartDR;
  * Write a description of class Jmart here.
  *
  * @Mochamad Ferdy Fauzan
- * @13-11-2021
+ * @15-11-2021
  */
 
 import java.io.FileNotFoundException;
@@ -23,19 +23,25 @@ import com.google.gson.stream.JsonReader;
 
 public class Jmart
 {
+    public static long DELIVERED_LIMIT_MS = 24;
+    public static long ON_DELIVERY_LIMIT_MS = 24;
+    public static long ON_PROGRESS_LIMIT_MS = 24;
+    public static long WAITING_CONF_LIMIT_MS = 24;
+	
     public void Jmart()
     {
         
     }
-    
+    /*
     class Country{
     	public String name;
     	public int population;
     	public List<String> listOfStates;
     }
-    
+    */
     public static void main(String[] args)
     {
+    	/*
     	try {
     		String filepath = "C://Java//jmart/city.json";
         	Gson gson = new Gson();
@@ -76,14 +82,36 @@ public class Jmart
     	catch(Throwable t) {
     		t.printStackTrace();
     	}
+    	*/
+    	try {
+    		JsonTable<Payment> table = new JsonTable<>(Payment.class, "C:/Java/jmart/randomPaymentList.json");
+    		ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<Payment>("Thread-PP", Jmart::paymentTimekeeper);
+            paymentPool.start();
+
+            table.forEach(payment -> paymentPool.add(payment));
+            while(paymentPool.size() !=0);
+            paymentPool.exit();
+
+            while (paymentPool.isAlive());
+            System.out.println("Thread exited successfully");
+            Gson gson = new Gson();
+            table.forEach(payment-> {
+            String history = gson.toJson(payment.history);
+            System.out.println(history);
+                     });
+         	}
+    		catch (Throwable t){
+    			t.printStackTrace();
+    		}
+    	/*
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
+    	System.out.println("account id:" + new Account(null, null, null, -1).id);
     	
-    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
-    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
-    	// System.out.println("account id:" + new Account(null, null, null, -1).id);
-    	
     	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
     	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
     	System.out.println("payment id:" + new Payment(-1, -1, -1, null).id);
+    	*/
     }
     
     public static List<Product> read(String filepath) throws FileNotFoundException {
@@ -152,6 +180,26 @@ public class Jmart
         	page = 0;
         }
         return list.stream().filter(a -> pred.predicate(a)).skip(page * pageSize).limit(pageSize).collect(Collectors.toList());
+    }
+    
+    public static boolean paymentTimekeeper(Payment payment) {
+        Payment.Record record = payment.history.get(payment.history.size() - 1);
+        long elapsed = Math.abs(record.date.getTime() - (new Date()).getTime());
+
+        if(record.status == Invoice.Status.WAITING_CONFIRMATION && elapsed > WAITING_CONF_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FAILED, "Waiting for Confirmation"));
+            return true;
+        } else if(record.status == Invoice.Status.ON_PROGRESS && elapsed > ON_PROGRESS_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FAILED, "On Progress"));
+            return true;
+        } else if(record.status == Invoice.Status.ON_DELIVERY && elapsed > ON_DELIVERY_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.DELIVERED, "On Delivery"));
+            return false;
+        } else if(record.status == Invoice.Status.DELIVERED && elapsed > DELIVERED_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FINISHED, "Delivery Finished"));
+            return true;
+        }
+        return false;
     }
     
     public static Product create(){

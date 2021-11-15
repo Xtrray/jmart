@@ -5,55 +5,48 @@ package ferdyJmartDR;
  * Write a description of class Invoice here.
  *
  * @Mochamad Ferdy Fauzan
- * @11-10-2021
+ * @15-11-2021
  */
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 public class Invoice extends Serializable
 {
-    public Date date;
     public int buyerId;
-    public int productId;
     public int complaintId;
+    public Date date;
+    public int productId;
     public Rating rating;
     public Status status;
-    ArrayList<Record> history = new ArrayList<>();
-
-    public enum Status{
-        WAITING_CONFIRMATION,
+    
+    public enum Status {
         CANCELLED,
-        ON_PROGRESS,
-        ON_DELIVERY,
         COMPLAINT,
+        DELIVERED,
+        FAILED,
         FINISHED,
-        FAILED;
+        ON_DELIVERY,
+        ON_PROGRESS,
+        WAITING_CONFIRMATION
     }
     
-    public enum Rating{
-        NONE,
+    public enum Rating {
         BAD,
+        GOOD,
         NEUTRAL,
-        GOOD;
+        NONE
     }
-    /**
-     * Constructor for objects of class Invoice
-     */
-      protected Invoice(int buyerId, int productId)
+    protected Invoice(int buyerId, int productId)
     {
         this.buyerId = buyerId;
         this.productId = productId;
         this.date = new Date();
         this.rating = Rating.NONE;
         this.status = Status.WAITING_CONFIRMATION;
+        this.complaintId = -1;
     }
-    
-    public double getTotalPay(){
-        return 0.0f;
-    }
-    
-    class Record{
-        public Status status;
-        public Date date;
-        public String message;
+
+    public double getTotalPay(Product product) {
+        return product.price;
     }
 }

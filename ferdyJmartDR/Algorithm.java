@@ -1,11 +1,12 @@
 package ferdyJmartDR;
 
 import java.util.*;
+import java.util.stream.Collectors;
 /**
  * Write a description of class Jmart here.
  *
  * @Mochamad Ferdy Fauzan
- * @11-10-2021
+ * @15-10-2021
  */
 public class Algorithm {
 	private Algorithm(){
@@ -349,5 +350,28 @@ public class Algorithm {
             }
         }
         return list;
+    }
+    
+    public static<T extends Comparable<? super T>> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred) {
+        List<T> list = Arrays.asList(array);
+        if(page < 0) page = 0;
+        if(pageSize < 0) pageSize = 0;
+        return list.stream().filter(pred::predicate).skip((long) page * pageSize).limit(pageSize).collect(Collectors.toList());
+    }
+
+    public static<T extends Comparable<? super T>> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred) {
+        List<T> list = new ArrayList<>();
+        iterable.forEach(list::add);
+        if(page < 0) page = 0;
+        if(pageSize < 0) pageSize = 0;
+        return list.stream().filter(pred::predicate).skip((long) page * pageSize).limit(pageSize).collect(Collectors.toList());
+    }
+
+    public static<T extends Comparable<? super T>> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred) {
+        List<T> list = new ArrayList<>();
+        iterator.forEachRemaining(list::add);
+        if(page < 0) page = 0;
+        if(pageSize < 0) pageSize = 0;
+        return list.stream().filter(pred::predicate).skip((long) page * pageSize).limit(pageSize).collect(Collectors.toList());
     }
 }
