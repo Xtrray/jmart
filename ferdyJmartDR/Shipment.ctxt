@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=Shipment
-comment1.params=address\ shipment
-comment1.target=Shipment(java.lang.String,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Shipment\r\n
-numComments=2
