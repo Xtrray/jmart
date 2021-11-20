@@ -7,6 +7,8 @@ package com.ferdyJmartDR;
  * @Mochamad Ferdy Fauzan
  * @11-10-2021
  */
+import com.ferdyJmartDR.dbjson.Serializable;
+
 import java.util.Date;
 import java.text.*;
 public class Complaint extends Serializable

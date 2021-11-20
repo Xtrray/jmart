@@ -1,6 +1,8 @@
 package com.ferdyJmartDR;
 
 
+import com.ferdyJmartDR.dbjson.Serializable;
+
 /**
  * Write a description of class Product here.
  *

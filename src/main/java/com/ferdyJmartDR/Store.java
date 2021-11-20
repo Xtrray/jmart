@@ -7,6 +7,8 @@ package com.ferdyJmartDR;
  * @Mochamad Ferdy Fauzan
  * @11-10-2021
  */
+import com.ferdyJmartDR.dbjson.Serializable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Store extends Serializable

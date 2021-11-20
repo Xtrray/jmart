@@ -1,4 +1,4 @@
-package com.ferdyJmartDR;
+package com.ferdyJmartDR.dbjson;
 
 /**
  * Write a description of class Jmart here.

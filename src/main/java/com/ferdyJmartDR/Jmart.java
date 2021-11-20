@@ -9,15 +9,13 @@ package com.ferdyJmartDR;
  */
 
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.ferdyJmartDR.dbjson.JsonDBEngine;
+import com.ferdyJmartDR.dbjson.JsonTable;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import org.springframework.boot.SpringApplication;
@@ -44,7 +42,9 @@ public class Jmart
     */
     public static void main(String[] args)
     {
+        JsonDBEngine.Run(Jmart.class);
         SpringApplication.run(Jmart.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
     	/*
     	try {
     		String filepath = "C://Java//jmart/city.json";
@@ -86,7 +86,7 @@ public class Jmart
     	catch(Throwable t) {
     		t.printStackTrace();
     	}
-    	*/
+
     	try {
     		JsonTable<Payment> table = new JsonTable<>(Payment.class, "C:/Java/jmart/randomPaymentList.json");
     		ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<Payment>("Thread-PP", Jmart::paymentTimekeeper);
@@ -107,7 +107,7 @@ public class Jmart
     		catch (Throwable t){
     			t.printStackTrace();
     		}
-    	/*
+
     	System.out.println("account id:" + new Account(null, null, null, -1).id);
     	System.out.println("account id:" + new Account(null, null, null, -1).id);
     	System.out.println("account id:" + new Account(null, null, null, -1).id);

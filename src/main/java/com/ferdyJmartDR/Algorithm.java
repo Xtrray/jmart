@@ -126,7 +126,7 @@ public class Algorithm {
         return false;
     }
     
-    static <T> T find(T[] array, T value){
+    public static <T> T find(T[] array, T value){
         Predicate<T> pNilai = nilai1 -> (nilai1 == value);
         for (T t : array) {
             if (pNilai.predicate(t)) {
@@ -136,7 +136,7 @@ public class Algorithm {
         return null;
     }
 
-    static <T> T find(Iterable<T> iterable, T value){
+    public static <T> T find(Iterable<T> iterable, T value){
         Predicate<T> pNilai = nilai1 -> (nilai1 == value);
         Iterator<T> iterator = iterable.iterator();
         while(iterator.hasNext())
@@ -150,7 +150,7 @@ public class Algorithm {
         return null;
     }
 
-    static <T> T find(Iterator<T> iterator, T value){
+    public static <T> T find(Iterator<T> iterator, T value){
         Predicate<T> pNilai = nilai1 -> (nilai1 == value);
         while(iterator.hasNext())
         {
@@ -163,7 +163,7 @@ public class Algorithm {
         return null;
     }
 
-    static <T> T find(T[] array, Predicate<T> pred){
+    public static <T> T find(T[] array, Predicate<T> pred){
         for (T t : array) {
             if (pred.predicate(t)) {
                 return t;
@@ -172,7 +172,7 @@ public class Algorithm {
         return null;
     }
 
-    static <T> T find(Iterable<T> iterable, Predicate<T> pred){
+    public static <T> T find(Iterable<T> iterable, Predicate<T> pred){
         Iterator<T> iterator = iterable.iterator();
         while(iterator.hasNext())
         {
@@ -185,7 +185,7 @@ public class Algorithm {
         return null;
     }
 
-    static <T> T find(Iterator<T> iterator, Predicate<T> pred){
+    public static <T> T find(Iterator<T> iterator, Predicate<T> pred){
         while(iterator.hasNext())
         {
             T element = iterator.next();

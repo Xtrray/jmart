@@ -7,9 +7,10 @@ package com.ferdyJmartDR;
  * @Mochamad Ferdy Fauzan
  * @15-11-2021
  */
+import com.ferdyJmartDR.dbjson.Serializable;
+
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
+
 public class Invoice extends Serializable
 {
     public int buyerId;
