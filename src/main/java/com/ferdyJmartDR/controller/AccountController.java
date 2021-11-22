@@ -6,6 +6,10 @@ import com.ferdyJmartDR.Store;
 import com.ferdyJmartDR.dbjson.JsonAutowired;
 import com.ferdyJmartDR.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,7 +22,7 @@ public class AccountController implements BasicGetController<Account>
 	public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 
-	@JsonAutowired(value = Account.class, filepath = "C:\\Java\\jmart\\src\\main\\java\\com\\ferdyJmartDR\\account.json")
+	@JsonAutowired(value = Account.class, filepath = "C:/Java/jmart/src/main/java/com/account.json")
 	public static JsonTable<Account> accountTable;
 
 	@Override
@@ -32,6 +36,16 @@ public class AccountController implements BasicGetController<Account>
 					@RequestParam String password
 			)
 	{
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		byte[] digest = md.digest(password.getBytes());
+		BigInteger no = new BigInteger(1, digest);
+		String hash = no.toString(16);
+		while (hash.length() < 32) hash = "0" + hash;
 		return Algorithm.<Account>find(accountTable, obj -> obj.email.equals(email) && obj.password.equals(password));
 	}
 
@@ -49,7 +63,19 @@ public class AccountController implements BasicGetController<Account>
 		Matcher matcher2 = REGEX_PATTERN_PASSWORD.matcher(password);
 		if(!matcher2.find()) return null;
 		if(Algorithm.<Account>find(accountTable, obj -> obj.email.equals(email)) != null) return null;
-		Account a = new Account(name, email, password, 0);
+
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		byte[] digest = md.digest(password.getBytes());
+		BigInteger no = new BigInteger(1, digest);
+		String hash = no.toString(16);
+		while (hash.length() < 32) hash = "0" + hash;
+		Account a = new Account(name, email, hash, 0);
+
 		accountTable.add(a);
 		return a;
 	}
