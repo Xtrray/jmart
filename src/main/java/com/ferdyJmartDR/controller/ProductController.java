@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 public class ProductController implements BasicGetController<Product> {
-    @JsonAutowired(value = Product.class, filepath = "C:/Java/jmart/src/main/java/com/product.json")
+    @JsonAutowired(value = Product.class, filepath = "C:\\Java\\jmart\\src\\main\\java\\com\\ferdyJmartDR\\product.json")
     public static JsonTable<Product> productTable;
 
     @Override

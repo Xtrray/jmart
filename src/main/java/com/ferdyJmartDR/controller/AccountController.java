@@ -22,7 +22,7 @@ public class AccountController implements BasicGetController<Account>
 	public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 
-	@JsonAutowired(value = Account.class, filepath = "C:/Java/jmart/src/main/java/com/account.json")
+	@JsonAutowired(value = Account.class, filepath = "C:\\Java\\jmart\\src\\main\\java\\com\\ferdyJmartDR\\account.json")
 	public static JsonTable<Account> accountTable;
 
 	@Override
