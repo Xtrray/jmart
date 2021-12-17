@@ -1,5 +1,10 @@
 package com.ferdyJmartDR.controller;
 
+/**
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
+ */
+
 import com.ferdyJmartDR.Algorithm;
 import com.ferdyJmartDR.Coupon;
 import com.ferdyJmartDR.Predicate;

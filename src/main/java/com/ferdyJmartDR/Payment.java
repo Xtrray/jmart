@@ -1,14 +1,13 @@
 package com.ferdyJmartDR;
 
+/**
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
+ */
+
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Write a description of class Payment here.
- *
- * @Mochamad Ferdy Fauzan
- * @15-11-2021
- */
 public class Payment extends Invoice
 {
     public ArrayList<Record> history = new ArrayList<>();

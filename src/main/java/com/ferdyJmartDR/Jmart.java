@@ -1,11 +1,8 @@
 package com.ferdyJmartDR;
 
-
 /**
- * Write a description of class Jmart here.
- *
- * @Mochamad Ferdy Fauzan
- * @15-11-2021
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
 
 import java.io.FileNotFoundException;

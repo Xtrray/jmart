@@ -1,14 +1,11 @@
 package com.ferdyJmartDR;
 
+/**
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
+ */
 
 import com.ferdyJmartDR.dbjson.Serializable;
-
-/**
- * Write a description of class Coupon here.
- *
- * @Mochamad Ferdy Fauzan
- * @11-10-2021
- */
 public class Coupon extends Serializable
 {
     public enum Type{

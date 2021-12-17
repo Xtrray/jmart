@@ -1,14 +1,11 @@
 package com.ferdyJmartDR;
 
-
 /**
- * Write a description of class Store here.
- *
- * @Mochamad Ferdy Fauzan
- * @11-10-2021
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
-import com.ferdyJmartDR.dbjson.Serializable;
 
+import com.ferdyJmartDR.dbjson.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Store

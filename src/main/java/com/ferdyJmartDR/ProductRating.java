@@ -1,12 +1,10 @@
 package com.ferdyJmartDR;
 
-
 /**
- * Write a description of class ProductRating here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
+
 public class ProductRating
 {
     // instance variables - replace the example below with your own

@@ -1,11 +1,8 @@
 package com.ferdyJmartDR;
 
-
 /**
- * Write a description of class Account here.
- *
- * @Mochamad Ferdy Fauzan
- * @13-10-2021
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
 
 import com.ferdyJmartDR.dbjson.Serializable;

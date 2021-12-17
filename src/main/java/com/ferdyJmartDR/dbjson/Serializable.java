@@ -1,12 +1,10 @@
 package com.ferdyJmartDR.dbjson;
 
-
 /**
- * Write a description of class Recognizable here.
- *
- * @Author: Mochamad Ferdy Fauzan
- * @Version: 06-11-2021
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
+
 import java.util.HashMap;
 
 public class Serializable implements Comparable<Serializable>

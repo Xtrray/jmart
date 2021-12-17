@@ -1,5 +1,10 @@
 package com.ferdyJmartDR.controller;
 
+/**
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
+ */
+
 import com.ferdyJmartDR.Account;
 import com.ferdyJmartDR.Algorithm;
 import com.ferdyJmartDR.Store;
@@ -105,6 +110,4 @@ public class AccountController implements BasicGetController<Account>
 		}
 
 	}
-
-
 }

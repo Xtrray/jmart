@@ -1,12 +1,10 @@
 package com.ferdyJmartDR;
 
-
 /**
- * Enumeration class ProductCategory - write a description of the enum class here
- *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
  */
+
 public enum ProductCategory
     {
         BOOK,

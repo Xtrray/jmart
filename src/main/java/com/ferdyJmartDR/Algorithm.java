@@ -1,13 +1,12 @@
 package com.ferdyJmartDR;
 
+/**
+ * @author Mochamad Ferdy Fauzan
+ * @version 17-12-2021
+ */
+
 import java.util.*;
 import java.util.stream.Collectors;
-/**
- * Write a description of class Jmart here.
- *
- * @Mochamad Ferdy Fauzan
- * @15-10-2021
- */
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
