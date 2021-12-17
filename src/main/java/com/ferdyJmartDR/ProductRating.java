@@ -7,7 +7,6 @@ package com.ferdyJmartDR;
 
 public class ProductRating
 {
-    // instance variables - replace the example below with your own
     private long total;
     private long count;
 
@@ -16,7 +15,6 @@ public class ProductRating
      */
     public ProductRating()
     {
-        // initialise instance variables
         this.total = 0;
         this.count = 0;
     }

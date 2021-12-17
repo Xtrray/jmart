@@ -25,7 +25,6 @@ public class PaymentController implements BasicGetController<Payment> {
     JsonTable<Payment> paymentTable;
     public static ObjectPoolThread<Payment> poolThread = new ObjectPoolThread<Payment>("Thread", PaymentController::timekeeper);
 
-    //Get invoices of seller's products
     @GetMapping("/{id}/page")
     @ResponseBody
     List<Payment> getInvoices(@PathVariable int id, @RequestParam(defaultValue="0") int page, @RequestParam(defaultValue="1000") int pageSize){
@@ -43,7 +42,6 @@ public class PaymentController implements BasicGetController<Payment> {
         return Algorithm.paginate(paymentList, page, pageSize, e->true);
     }
 
-    //Get invoices of seller's purchases
     @GetMapping("/{id}/purchases/page")
     @ResponseBody List<Payment> getMyInvoices(@PathVariable int id, @RequestParam(defaultValue="0") int page, @RequestParam(defaultValue="1000") int pageSize){
         return Algorithm.<Payment>paginate(getJsonTable(), page, pageSize, p -> p.buyerId == id);

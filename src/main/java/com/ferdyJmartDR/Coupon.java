@@ -11,7 +11,6 @@ public class Coupon extends Serializable
     public enum Type{
         DISCOUNT, REBATE
     }
-    // instance variables - replace the example below with your own
     public final int code;
     public final double cut;
     public final double minimum;

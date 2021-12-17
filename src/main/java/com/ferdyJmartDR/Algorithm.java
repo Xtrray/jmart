@@ -18,7 +18,6 @@ public class Algorithm {
     private Algorithm() {
     }
 
-    //collect
     public static <T> List<T> collect(T[] array, T value) {
         List<T> list = new ArrayList<T>();
         for(T t : array){
@@ -76,7 +75,6 @@ public class Algorithm {
         return list;
     }
 
-    //count
     public static <T> int count(T[] array, T value) {
         int counter = 0;
         for (T arrayValue : array) {
@@ -132,7 +130,6 @@ public class Algorithm {
         return counter;
     }
 
-    //exists
     public static <T> boolean exists(T[] array, T value) {
         for (T arrayValue : array) {
             if (arrayValue.equals(value)) {
@@ -182,7 +179,6 @@ public class Algorithm {
         return false;
     }
 
-    //find
     public static <T> T find(T[] array, T value) {
         for (T arrayValue : array) {
             if (arrayValue.equals(value)) {
@@ -233,7 +229,6 @@ public class Algorithm {
         return null;
     }
 
-    //max Comparable
     public static <T extends Comparable<? super T>> T max(T first, T second) {
         if ((first.compareTo(second)) > 0) {
             return first;
@@ -270,7 +265,6 @@ public class Algorithm {
         return maximum;
     }
 
-    //max comparator
     public static <T> T max(T first, T second, Comparator<? super T> comparator) {
         if (comparator.compare(first, second) > 0) {
             return first;
@@ -307,7 +301,6 @@ public class Algorithm {
         return maximum;
     }
 
-    //min Comparable
     public static <T extends Comparable<? super T>> T min(T first, T second) {
         if ((first.compareTo(second)) > 0) {
             return second;
@@ -344,7 +337,6 @@ public class Algorithm {
         return minimum;
     }
 
-    //min Comparator
     public static <T> T min(T first, T second, Comparator<? super T> comparator) {
         if (comparator.compare(first, second) < 0) {
             return first;
@@ -381,7 +373,6 @@ public class Algorithm {
         return minimum;
     }
     public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred){
-        //Convert array to List
         List<T> newList = new ArrayList<>();
         for(T t : array){
             newList.add(t);
@@ -398,7 +389,6 @@ public class Algorithm {
         }
     }
     public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred){
-        //Convert array to List
         List<T> newList = new ArrayList<>();
         for(T t : iterable){
             newList.add(t);
@@ -415,7 +405,6 @@ public class Algorithm {
         }
     }
     public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
-        //Convert array to List
         List<T> newList = new ArrayList<>();
         while(iterator.hasNext()){
             newList.add(iterator.next());

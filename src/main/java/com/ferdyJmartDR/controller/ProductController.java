@@ -18,7 +18,6 @@ import java.util.List;
 public class ProductController implements BasicGetController<Product>{
     public static @JsonAutowired(value= Product.class, filepath="C:\\Java\\jmart\\src\\main\\randomProductList.json") JsonTable<Product> productTable;
 
-    //Get seller's products
     @GetMapping("/{id}/page")
     @ResponseBody List<Product> getProducts(@PathVariable int id, @RequestParam(defaultValue="0") int page, @RequestParam(defaultValue="1000") int pageSize){
         List<Product> productList = new ArrayList<>();
@@ -35,7 +34,6 @@ public class ProductController implements BasicGetController<Product>{
         return Algorithm.paginate(productList, page, pageSize, e->true);
     }
 
-    //Get product of seller's purchases
     @GetMapping("/{id}/purchases/page")
     @ResponseBody List<Product> getMyProducts(@PathVariable int id, @RequestParam(defaultValue="0") int page, @RequestParam(defaultValue="1000") int pageSize){
         List<Product> productList = new ArrayList<>();

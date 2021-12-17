@@ -9,11 +9,9 @@ import java.util.HashMap;
 
 public class Serializable implements Comparable<Serializable>
 {
-    // instance variables - replace the example below with your own
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
 
-    //constructor
     protected Serializable(){
 
         Integer counter = mapCounter.get(getClass());

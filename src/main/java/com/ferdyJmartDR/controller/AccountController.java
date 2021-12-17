@@ -46,7 +46,7 @@ public class AccountController implements BasicGetController<Account>
 				for(int i = 0; i < bytes.length; i++){
 					sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
 				}
-				if(account.email.equals(email) && account.password.equals(sb.toString())){ //Compare hash in string with equals
+				if(account.email.equals(email) && account.password.equals(sb.toString())){
 					return account;
 				}
 			} catch (NoSuchAlgorithmException e){

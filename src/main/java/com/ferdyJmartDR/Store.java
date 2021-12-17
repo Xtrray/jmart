@@ -16,7 +16,7 @@ public class Store
     public double balance;
     public String address;
     public String phoneNumber;
-    //constructors
+
     public Store(String name, String address, String phoneNumber, double balance){
         this.name = name;
         this.balance = balance;
